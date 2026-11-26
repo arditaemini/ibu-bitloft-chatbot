@@ -1,0 +1,18 @@
+# Render Blueprint for the IBU BITLoft chatbot (free web service).
+services:
+  - type: web
+    name: ibu-bitloft-chatbot
+    runtime: python
+    plan: free
+    # Install packages, then download the embedding model and build the search index,
+    # so the running app starts fast and does not rebuild on every wake-up.
+    buildCommand: pip install -r requirements.txt && python -c "from rag import get_vectorstore; get_vectorstore()"
+    startCommand: python app.py
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: HOST
+        value: 0.0.0.0
+      - key: GROQ_API_KEY
+        sync: false # Render asks for the value when you create the service
