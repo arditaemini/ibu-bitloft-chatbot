@@ -47,6 +47,11 @@ The index is rebuilt automatically whenever PDFs in `docs/` are added or changed
 The first build takes a few minutes. The chatbot is then live at `https://<service-name>.onrender.com`.
 Free services sleep after 15 minutes without visitors; the next visit wakes them in about a minute.
 
+**Keeping it free:** do not add a credit card to Render or Groq. Without one, neither can bill you:
+going over a free limit only pauses the service (Render) or returns "rate limited" errors (Groq)
+until the limit resets. Render's free plan allows 750 hours a month (enough for one service running
+all month), 5 GB of traffic and 500 build minutes; Groq's free tier allows about 1,000 requests a day.
+
 ## Project layout
 
 | Path | Purpose |
